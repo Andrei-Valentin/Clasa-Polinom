@@ -574,8 +574,9 @@ void Expozitie<SUPERSPORT>::SS_Vanzare(int nrvanzare){
 
 
 
-void tip(MasinaSport *&m, int &MasinaCurenta,bool (&Exista)[50]) {
+bool tip(MasinaSport *&m, int &MasinaCurenta,bool (&Exista)[50]) {
     string s;
+    bool reusit=false;
     cout<<"\n";
     cout<<"Introduceti tipul pentru Masina "<<MasinaCurenta+1<<": ";
     cin>>s;
@@ -584,24 +585,28 @@ void tip(MasinaSport *&m, int &MasinaCurenta,bool (&Exista)[50]) {
                 Exista[MasinaCurenta]=true;
                 m=new Coupe;
                 cin>>*m;
+                reusit=true;
         }
         else
             if(s=="HotHatch" || s=="Hothatch" || s=="hothatch"){
                 Exista[MasinaCurenta]=true;
                 m=new HotHatch;
                 cin>>*m;
+                reusit=true;
             }
         else
             if(s=="Cabrio" || s=="cabrio"){
                 Exista[MasinaCurenta]=true;
                 m=new Cabrio;
                 cin>>*m;
+                reusit=true;
             }
         else
             if(s=="Supersport" || s=="supersport" || s=="SUPERSPORT" || s=="SuperSport"){
                 Exista[MasinaCurenta]=true;
                 m=new SUPERSPORT;
                 cin>>*m;
+                reusit=true;
             }
 
                 else
@@ -614,6 +619,7 @@ void tip(MasinaSport *&m, int &MasinaCurenta,bool (&Exista)[50]) {
     catch(int j){
         cout<<"Nu ati introdus o clasa valida. Incercati Coupe,HotHatch,Cabrio sau Supersport.\n ";
     }
+    return reusit;
 }
 
 
@@ -671,6 +677,7 @@ void menu()
     option=0;
     int MasinaCurenta=0;
     bool Exista[50] = { false };
+    bool reusit;
     vector<MasinaSport*> Masini;
     Expozitie<MasinaSport*> Expozitie1;
     Expozitie<SUPERSPORT> Expozitie2;
@@ -687,9 +694,13 @@ void menu()
 
         if (option==1)                                                          ///1. Citire informatii masina
         {
-            tip(M,MasinaCurenta,Exista);
-            Masini.push_back(M);
-            MasinaCurenta++;
+            reusit=tip(M,MasinaCurenta,Exista); //daca a fost introdus un tip valid,obiectul este introdus in vector si MasinaCurenta creste
+            if(reusit==true)
+            {
+                Masini.push_back(M);
+                MasinaCurenta++;
+            }
+
 
             cout<<endl;
             cout<<"In total au fost introduse ";
@@ -731,9 +742,12 @@ void menu()
                 int curent=MasinaCurenta;
                 for(int i=curent;i<curent+numarmasini;i++)
                 {
-                    tip(M,MasinaCurenta,Exista);
-                    Masini.push_back(M);
-                    MasinaCurenta++;
+                    reusit=tip(M,MasinaCurenta,Exista);
+                    if(reusit==true)
+                    {
+                        Masini.push_back(M);
+                        MasinaCurenta++;
+                    }
                 }
 
 
