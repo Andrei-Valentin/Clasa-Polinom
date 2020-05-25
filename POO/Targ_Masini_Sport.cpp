@@ -717,7 +717,7 @@ void menu()
             cout<<" masini"<<endl;
 
             int nrafisat;
-            cout<<"Introduceti numarul matricei care trebuie afisata ";
+            cout<<"Introduceti numarul masinii care trebuie afisata ";
             cin>>nrafisat;
             if (Exista[nrafisat-1]!=0 && nrafisat>0)
             {
