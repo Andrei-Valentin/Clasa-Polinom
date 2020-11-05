@@ -15,7 +15,7 @@ int main()
     stack <int> drum;   //stiva care retine drumul
 
     ifstream fisier;
-    fisier.open("afn.in");
+    fisier.open("afnlambda.in");
 
  if (fisier.is_open())
  {
