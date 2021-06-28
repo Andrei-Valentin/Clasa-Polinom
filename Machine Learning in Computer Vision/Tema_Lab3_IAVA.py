@@ -369,14 +369,6 @@ Un alt element important il reprezinta functiile de activare, care pot influenta
 * LeakyRelu
 * GELU
 
-## Cerinta
-
-**(2p)** Experimentati cu aceste elemente in cadrul retelei LeNet definita mai devreme, pentru a obtine o acuratete mai buna. Observati viteza de convergenta si performanta retelei pentru 3 configuratii diferite.
-
-
-###Bonus
-**(1p)** Antrenati reteaua folosind GPU (Graphics processing unit)
-
 
 
 
