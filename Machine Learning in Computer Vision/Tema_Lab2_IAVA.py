@@ -493,10 +493,3 @@ def plotting_train_fn(epochs: int, train_loader: data.DataLoader, test_loader: d
     print("Acuratetea la finalul epocii {} este {:.2f}%".format(e, (correct / count) * 100))
     plot_weights(net)
 
-# Cerinta 1 - completati codul aici
-
-# Cerinta 2 - completati codul aici
-
-# Cerinta 3 - completati codul aici
-
-# Cerinta 5 - completati codul aici
